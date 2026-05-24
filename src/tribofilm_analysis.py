@@ -198,10 +198,19 @@ def extract_curves_from_gwyddion_container(container) -> Tuple[np.ndarray, np.nd
     The exact container key structure may depend on how the .spm files were
     generated or imported into Gwyddion.
     """
-    min_key = min(container.keys())
+    
+    keys = set(container.keys())
+    min_key = min(keys)
+    current_key = min_key + 1
+
+    if current_key not in keys:
+        raise KeyError(
+            f"Expected current curve at key {current_key}, but this key was not found. "
+            "Please check the Gwyddion container structure for this .spm file."
+        )
 
     force_curve = container[min_key].get_curve(0)
-    current_curve = container[min_key + 1].get_curve(0)
+    current_curve = container[current_key].get_curve(0)
 
     force = force_curve.get_ydata()
     current = current_curve.get_ydata()
