@@ -20,6 +20,12 @@ In conductive-AFM thickness analysis, the force signal can be used to identify t
 
 The apparent tribofilm thickness is estimated from the height difference between the detected mechanical transition and electrical transition.
 
+## Original data workflow
+
+The original workflow analyses conductive-AFM data stored in `.spm` files. These files are read using the Gwyddion Python module (`gwy`). The script extracts force and current curves from a Gwyddion data container, calculates the derivatives of force and current with respect to height, and estimates the apparent tribofilm thickness from the detected mechanical and electrical transitions.
+
+A CSV example is included only to demonstrate the core calculation without requiring users to install Gwyddion or access unpublished raw `.spm` files.
+
 ## Repository structure
 
 ```text
