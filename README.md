@@ -26,6 +26,10 @@ The original workflow analyses conductive-AFM data stored in `.spm` files. These
 
 A CSV example is included only to demonstrate the core calculation without requiring users to install Gwyddion or access unpublished raw `.spm` files.
 
+## Data note
+
+The original experimental data were stored as `.spm` files and are not included in this repository because they may contain unpublished research data and instrument-specific metadata. The included CSV file is a simplified example dataset used only to demonstrate the analysis workflow.
+
 ## Repository structure
 
 ```text
