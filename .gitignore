@@ -216,3 +216,29 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Raw experimental AFM/Gwyddion data
+# Raw .spm/.gwy files are excluded because they may contain unpublished
+# experimental data and instrument-specific metadata.
+*.spm
+*.gwy
+
+# Raw data folders
+data/raw/
+data/raw_spm/
+data/private/
+data/unpublished/
+
+# Local analysis outputs
+outputs/*.csv
+outputs/*.png
+outputs/*.xlsx
+outputs/*.pdf
+
+# Keep the outputs folder structure
+!outputs/.gitkeep
+
+# Local machine-specific files
+*.log
+.DS_Store
+Thumbs.db
