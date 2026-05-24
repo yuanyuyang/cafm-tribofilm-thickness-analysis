@@ -43,3 +43,67 @@ cafm-tribofilm-thickness-analysis/
 │   └── tribofilm_analysis.py
 └── outputs/
     └── .gitkeep
+```
+
+## Installation
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Example usage
+
+Run the example script from the repository root:
+
+```bash
+python src/tribofilm_analysis.py
+```
+
+The script reads:
+
+```text
+data/example_force_current_curve.csv
+```
+
+and prints the estimated tribofilm thickness.
+
+## Input data format
+
+The example CSV file contains three columns:
+
+```text
+height, force, current
+```
+
+where:
+
+- `height` is the height or displacement signal;
+- `force` is the force signal;
+- `current` is the current signal.
+
+The original `.spm` workflow extracts these signals from Gwyddion-compatible data containers.
+
+## Notes on Gwyddion
+
+The original research workflow analyses conductive-AFM data stored in `.spm` files. These files are read using the Gwyddion Python module (`gwy`).
+
+The `gwy` module is not included in `requirements.txt` because it is not a standard pip package and usually needs to be run within a Gwyddion-compatible Python environment.
+
+The CSV example is provided so that the core numerical analysis can be inspected and tested without access to Gwyddion or unpublished raw AFM files.
+
+## Notes on thresholds
+
+The default threshold values are example values based on the original analysis workflow:
+
+```python
+force_threshold = 25.0
+current_threshold = 0.015
+```
+
+These values should be adjusted for different materials, probes, signal scales and instrument settings.
+
+## Limitations
+
+This repository is intended to demonstrate a clear scientific data analysis workflow. The threshold-based transition detection method is simple and interpretable, but more robust approaches could include smoothing, uncertainty estimation, automated threshold selection, or model-based transition detection.
